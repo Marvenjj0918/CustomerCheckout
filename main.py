@@ -24,9 +24,10 @@ def salesTax():
     elif state:
         exit('State Error, We only working with those following state: Massachusett, New Hampshire, Maine')
 
-def
+def product():
+    return
 
-# Press the green button in the gutter to run the script.
+ #Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     salesTax()
 
