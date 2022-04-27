@@ -46,7 +46,7 @@ def product():
     while j != numberOfItem:
         shoppinglist = input("Please choose a item in the lis above:")
         if shoppinglist == "apples":
-            print(mergeList(0),mergePrice(0))
+            print(mergeList[0],mergePrice[0])
 
         newShoppingList.append(shoppinglist)
         numberOfItem = numberOfItem-1
