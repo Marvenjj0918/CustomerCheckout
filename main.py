@@ -3,7 +3,7 @@
 from pyrecord import Record
 
 
-def salesTax():
+def salesTax(state):
     state = input("Enter the State you're in? (MA,NH,ME): ")
     if state in ['MA', 'ma', 'massachusett', 'Massachusett']:
         state = 'Massachusett'
