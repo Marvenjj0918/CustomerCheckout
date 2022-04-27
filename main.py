@@ -20,20 +20,38 @@ def salesTax():
         state = 'Maine'
         tax = 0.55
         print(state, tax)
-        return tax
+        return state, tax
     elif state:
         exit('State Error, We only working with those following state: Massachusett, New Hampshire, Maine')
 
 def product():
-    wicEligibleFood =['apples', 'bananas', 'carrots', 'potatoes','Cheese','Milk','Juice','Bread','Cereal','Yogurt']
-    for i in wicEligibleFood:
+    wicEligibleFood =['apples', 'bananas', 'carrots']
+    wicEligibleFoodPrices = [2.99, 4.50, 5]
+
+    clothing = ['jeans', 'shirt', 't-shirt']
+    clothingPrices = [25.99, 14.50, 15]
+
+
+    everytingElse = ['Refrigerator ', 'cooktop', 'Dishwasher ']
+    everytingElsePrices = [599, 450, 255]
+
+    mergeList = wicEligibleFood + clothing + everytingElse
+    mergePrice = wicEligibleFoodPrices + clothingPrices + everytingElsePrices
+    for i in mergeList:
         print(i)
-    clothing = ['jeans', 'shirt', 't-shirt', 'pantys' 'boxer', 'sweater','jacket','coat','socks','shorts','tracksuit']
-    for i in clothing:
-        print(i)
-    everytingElse =['Refrigerator ','cooktop ','Dishwasher ','washer ','dryer','Microwave ','oven']
-    for i in everytingElse:
-        print(i)
+
+    numberOfItem = int(input("How many item are you buying?"))
+    j = 0
+    newShoppingList=[]
+    while j != numberOfItem:
+        shoppinglist = input("Please choose a item in the lis above:")
+        if shoppinglist == "apples":
+            print(mergeList(0),mergePrice(0))
+
+        newShoppingList.append(shoppinglist)
+        numberOfItem = numberOfItem-1
+        print(numberOfItem, shoppinglist)
+    print(newShoppingList)
     return
 
  #Press the green button in the gutter to run the script.
