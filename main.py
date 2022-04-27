@@ -13,7 +13,7 @@ def salesTax():
     elif state in ['NH', 'nh', 'New Hampshire', 'new hampshire']:
         state = 'New Hampshire'
         salesTax.tax = 0
-        #print(state, tax)
+        print(state, salesTax.tax)
         return state, salesTax.tax
     elif state in ['ME', 'me', 'Maine', 'maine']:
         state = 'Maine'
@@ -26,7 +26,7 @@ def salesTax():
 
 def product():
     typeOfGoog = Record.create_type("typeOfGoog","name", "price" )
-    wicEligibleFood= typeOfGoog.extend_type("wicEligibleFood")
+    wicEligibleFood = typeOfGoog.extend_type("wicEligibleFood")
     everytingElse = typeOfGoog.extend_type("everytingElse")
     clothing = typeOfGoog.extend_type("clothing")
     apple = wicEligibleFood("apple", 2.99)
@@ -38,9 +38,6 @@ def product():
     print(apple, bananas)
     print(jeans, shirt)
     print(Refrigerator, Dishwasher)
-
-
-
     numberOfItem = int(input("How many item are you buying?"))
     j = 0
     newShoppingList=[]
@@ -67,10 +64,8 @@ def product():
         else:
             print("not in the list")
             price = 0
-
         newShoppingList.append(price)
         numberOfItem = numberOfItem-1
-
     Sum = sum(newShoppingList)
     print("Total before tax is: ","$",Sum)
     totals = (Sum * salesTax.tax) + Sum
