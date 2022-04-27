@@ -1,8 +1,6 @@
-# This is a sample Python script.
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
+from pyrecord import Record
 
 def salesTax():
     state = input("Enter the State you're in? (MA,NH,MA): ")
@@ -25,28 +23,29 @@ def salesTax():
         exit('State Error, We only working with those following state: Massachusett, New Hampshire, Maine')
 
 def product():
-    wicEligibleFood =['apples', 'bananas', 'carrots']
-    wicEligibleFoodPrices = [2.99, 4.50, 5]
+    typeOfGoog = Record.create_type("typeOfGoog","name", "price" )
+    wicEligibleFood= typeOfGoog.extend_type("wicEligibleFood")
+    everytingElse = typeOfGoog.extend_type("everytingElse")
+    clothing = typeOfGoog.extend_type("clothing")
+    apples = wicEligibleFood("apples", 2.99)
+    bananas = wicEligibleFood("bananas",4.4)
+    jeans = clothing("jeans", 25)
+    shirt = clothing("shirt", 15)
+    Refrigerator = everytingElse("Refrigerator", 585)
+    Dishwasher = everytingElse("Dishwasher", 260)
+    print(apples,bananas)
 
-    clothing = ['jeans', 'shirt', 't-shirt']
-    clothingPrices = [25.99, 14.50, 15]
 
-
-    everytingElse = ['Refrigerator ', 'cooktop', 'Dishwasher ']
-    everytingElsePrices = [599, 450, 255]
-
-    mergeList = wicEligibleFood + clothing + everytingElse
-    mergePrice = wicEligibleFoodPrices + clothingPrices + everytingElsePrices
-    for i in mergeList:
-        print(i)
 
     numberOfItem = int(input("How many item are you buying?"))
     j = 0
     newShoppingList=[]
     while j != numberOfItem:
         shoppinglist = input("Please choose a item in the lis above:")
-        if shoppinglist == "apples":
-            print(mergeList[0],mergePrice[0])
+        if shoppinglist == "apple":
+            print(apples)
+        else:
+            print("not in the list")
 
         newShoppingList.append(shoppinglist)
         numberOfItem = numberOfItem-1
