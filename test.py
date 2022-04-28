@@ -1,6 +1,7 @@
 from unittest import TestCase
 from unittest import mock
 import checkout
+import checkoutForTestingPurpusing
 
 class TestChoppingList(TestCase):
     @mock.patch('checkout.input', create=True)
@@ -22,11 +23,11 @@ class TestChoppingList(TestCase):
         result = checkout.salesTax()
         self.assertEqual(result,('New Hampshire', 0))
 
-    @mock.patch('checkout.input', create=True)
-    def test_product(self, mocked_input):
-        mocked_input.side_effect=['1', 'apple']
-        result = checkout.product()
-        self.assertEqual(result, ('apple', '$', 2.99))
+    #@mock.patch('checkout.input', create=True)
+    def test_product(self):
+        #mocked_input.side_effect=['1', 'apple']
+        result = checkoutForTestingPurpusing.product(0.4,245)
+        self.assertEqual(result, (343.0))
 
 
 

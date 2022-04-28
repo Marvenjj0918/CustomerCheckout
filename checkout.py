@@ -2,6 +2,7 @@ from pyrecord import Record
 
 
 def salesTax():
+    salesTax.tax = 0.625
     state = input("Enter the State you're in? (MA,NH,ME): ")
     if state in ['MA', 'ma', 'massachusett', 'Massachusett']:
         state = 'Massachusett'
@@ -20,7 +21,7 @@ def salesTax():
         return state, salesTax.tax
     else:
         exit('State Error, We only working with those following state: Massachusett, New Hampshire, Maine')
-
+    return salesTax.tax
 
 def product():
     typeOfGoog = Record.create_type("typeOfGoog","name", "price" )
@@ -69,6 +70,8 @@ def product():
     totals = (Sum * salesTax.tax) + Sum
     print("Sales tax is:",salesTax.tax)
     print("Total with tax included is: ", "$", totals)
+
+
 
 
 def total(sate):
