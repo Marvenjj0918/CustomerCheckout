@@ -1,6 +1,4 @@
 from unittest import TestCase
-from unittest import mock
-import checkout
 import checkoutForTestingPurpusing
 
 class TestChoppingList(TestCase):
@@ -37,6 +35,10 @@ class TestChoppingList(TestCase):
         result = checkoutForTestingPurpusing.product('maine')
         self.assertEqual(result,(1383.3595))
 
-    def test_maine(self):
+    def test_randomInput(self):
         result = checkoutForTestingPurpusing.product('AEFSWERF')
+        self.assertEqual(result,('State Error, We only working with those following state: Massachusett, New Hampshire, Maine'))
+
+    def test_NY(self):
+        result = checkoutForTestingPurpusing.product('NY')
         self.assertEqual(result,('State Error, We only working with those following state: Massachusett, New Hampshire, Maine'))
