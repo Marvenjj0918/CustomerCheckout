@@ -1,5 +1,5 @@
-import checkout
-import checkoutForTestingPurpusing
+import checkoutDONOTUSE
+import checkoutForTesting
 
 if __name__ == '__main__':
    # checkout.product()
