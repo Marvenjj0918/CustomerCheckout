@@ -4,31 +4,39 @@ import checkout
 import checkoutForTestingPurpusing
 
 class TestChoppingList(TestCase):
-    @mock.patch('checkout.input', create=True)
 
-    def test_MA(self, mocked_input):
-        mocked_input.side_effect = ['ma']
-        result = checkout.salesTax()
-        self.assertEqual(result,('Massachusett', 0.625))
+    def test_ma(self):
+        result = checkoutForTestingPurpusing.product('ma')
+        self.assertEqual(result,(1450.2962499999999))
 
-    @mock.patch('checkout.input', create=True)
-    def test_ME(self, mocked_input):
-        mocked_input.side_effect = ['me']
-        result = checkout.salesTax()
-        self.assertEqual(result,('Maine', 0.55))
+    def test_nh(self):
+        result = checkoutForTestingPurpusing.product('nh')
+        self.assertEqual(result,(892.49))
 
-    @mock.patch('checkout.input', create=True)
-    def test_NH(self, mocked_input):
-        mocked_input.side_effect = ['NH']
-        result = checkout.salesTax()
-        self.assertEqual(result,('New Hampshire', 0))
+    def test_me(self):
+        result = checkoutForTestingPurpusing.product('me')
+        self.assertEqual(result,(1383.3595))
 
-    #@mock.patch('checkout.input', create=True)
-    def test_product(self):
-        #mocked_input.side_effect=['1', 'apple']
-        result = checkoutForTestingPurpusing.product(0.4,245)
-        self.assertEqual(result, (343.0))
+    def test_ME(self):
+        result = checkoutForTestingPurpusing.product('ME')
+        self.assertEqual(result,(1383.3595))
 
+    def test_New_Hampshire(self):
+        result = checkoutForTestingPurpusing.product('New Hampshire')
+        self.assertEqual(result,(892.49))
 
+    def test_Massachusett(self):
+        result = checkoutForTestingPurpusing.product('Massachusett')
+        self.assertEqual(result,(1450.2962499999999))
 
-    #def test_exists(self):
+    def test_Maine(self):
+        result = checkoutForTestingPurpusing.product('Maine')
+        self.assertEqual(result,(1383.3595))
+
+    def test_maine(self):
+        result = checkoutForTestingPurpusing.product('maine')
+        self.assertEqual(result,(1383.3595))
+
+    def test_maine(self):
+        result = checkoutForTestingPurpusing.product('AEFSWERF')
+        self.assertEqual(result,('State Error, We only working with those following state: Massachusett, New Hampshire, Maine'))
